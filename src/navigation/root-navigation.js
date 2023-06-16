@@ -23,7 +23,7 @@ export const RootNavigator = () => {
         barStyle={'light-content'}
       />
       <Stack.Navigator
-        initialRouteName="Notifications"
+        initialRouteName="Splash"
         screenOptions={horizontalAnimation}>
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
