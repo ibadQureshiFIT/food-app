@@ -10,6 +10,7 @@ import RootStackParamList from '../../types/navigation-types/root-stack';
 import { UTILS } from 'utils';
 import { useAppDispatch } from 'hooks/use-store';
 import styles from './styles';
+import { mvs, width } from 'config/metrices';
 type props = NativeStackScreenProps<RootStackParamList, 'Splash'>;
 
 const Splash = (props: props) => {
@@ -22,7 +23,7 @@ const Splash = (props: props) => {
 
     (async () => {
       try {
-        let screen: any = 'Login';
+        let screen: any = 'Onboarding';
         UTILS.get_current_location((position) => {
           dispatch(setLocation({
             latitude: position?.coords?.latitude,
@@ -40,7 +41,7 @@ const Splash = (props: props) => {
         UTILS.getItem(STORAGEKEYS.user).then((data: any) => {
           if (data) {
             const user = JSON.parse(data);
-            screen = 'Login';
+            screen = 'Onboarding';
             dispatch(setUserInfo(user));
           }
           setTimeout(() => {
@@ -57,14 +58,7 @@ const Splash = (props: props) => {
 
   return (
     <View style={{ ...styles.container }}>
-      <ImageBackground source={splash_bg} style={{
-        height: '100%',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <SplashIcon />
-      </ImageBackground>
+      <SplashIcon width={width - mvs(60)} />
     </View>
   );
 };

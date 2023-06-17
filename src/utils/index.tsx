@@ -23,7 +23,6 @@ const getErrorList = (data: any) => {
   console.log('errors=>>::', errors);
 
   if (typeof errors === 'object' && Object.keys(errors)?.length) {
-
     concatenatedMessages = errors
       ? Object.values(message)?.flat()?.join(", ")
       : null;

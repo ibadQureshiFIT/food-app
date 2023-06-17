@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleProp, StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native'
+import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native'
 import { colors } from 'config/colors'
 import { mvs } from 'config/metrices'
 import Regular from '../../../typography/regular-text'
@@ -11,7 +11,7 @@ type props = {
     icon?: string,
     disabled?: boolean
     loading?: boolean
-    textStyle?: StyleProp<ViewStyle>
+    textStyle?: StyleProp<TextStyle>
     containerStyle?: StyleProp<ViewStyle>
 }
 export const PlusButton = (props: props) => {
@@ -87,8 +87,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.primary,
         width: '100%',
-        height: mvs(50),
-        borderRadius: mvs(15),
+        height: mvs(54),
+        borderRadius: mvs(7),
     },
     iconContainer: {
         alignItems: 'center',

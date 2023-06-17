@@ -16,7 +16,7 @@ const Regular: React.FC<FcProps> = ({
   label,
   fontSize,
   color,
-  numberOfLines,
+  numberOfLines = 1,
   children,
   style,
   ...props

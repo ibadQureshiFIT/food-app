@@ -2,14 +2,15 @@
  * @providesModule Colors
  */
 export const colors = {
+  placeholder: '#9D9D9D',
+  white: '#FFFFFF',
+  primary: '#20D994', //'#5586FF'
+  lightGray: '#FFFFFFB2',
   border: '#E8E8E8',
   black: '#706561',
-  white: '#FFFFFF',
-  lightGray: '#dfdede',
   red: '#ff0707',
   green: '#0DC183',
   transparent: 'transparent',
-  primary: '#023B96', //'#5586FF'
   yellow: '#ffd79c',
   blueHalf: 'rgba(2,59,150,0.23)',
   secondary: '#f3f3f3', //'#F2F2F2',

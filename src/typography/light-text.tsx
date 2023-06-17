@@ -10,12 +10,12 @@ type FcProps = {
   color?: ColorValue | undefined
   onPress?: (() => void) | undefined;
   style?: StyleProp<TextStyle>;
-  children?: any;
+  children?: JSX.Element | JSX.Element[] | null
 };
-const Bold: React.FC<FcProps> = ({
+const Light: React.FC<FcProps> = ({
   label,
   fontSize,
-  color = colors.black,
+  color,
   numberOfLines = 1,
   children,
   style,
@@ -32,11 +32,11 @@ const Bold: React.FC<FcProps> = ({
   );
 };
 
-export default Bold;
+export default Light;
 
 const styles = StyleSheet.create({
   label: {
-    fontFamily: fonts.bold,
+    fontFamily: fonts.light,
     fontSize: mvs(15),
     color: colors.black, //default color
   },
