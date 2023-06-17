@@ -9,11 +9,17 @@ import LoginScreen from 'screens/login-screen';
 import Notifications from 'screens/notifications';
 import Signup from 'screens/signup';
 import Splash from 'screens/splash';
+<<<<<<< Updated upstream
 import {horizontalAnimation} from '../utils';
 import {TabBar} from './curvedtabs';
 import DrawerNavigation from './drawer-navigation/drawer-navigation';
 import Onboarding from 'screens/on-boarding';
 import LocationSetup from 'screens/location-setup';
+=======
+import { horizontalAnimation } from '../utils';
+import { TabBar } from './curvedtabs';
+import Me from 'screens/me';
+>>>>>>> Stashed changes
 const Stack = createNativeStackNavigator();
 
 export const RootNavigator = () => {
@@ -26,11 +32,15 @@ export const RootNavigator = () => {
         barStyle={'light-content'}
       />
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="Me"
         screenOptions={horizontalAnimation}>
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
+<<<<<<< Updated upstream
           <Stack.Screen name="Onboarding" component={Onboarding} />
+=======
+          <Stack.Screen name="Me" component={Me} />
+>>>>>>> Stashed changes
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Notifications" component={Notifications} />
