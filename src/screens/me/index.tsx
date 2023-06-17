@@ -36,7 +36,10 @@ const Me = (props: props) => {
             source={profile_pic}
             style={{height: mvs(61), width: mvs(61)}}
           />
-          <Bold label={`John doe`} />
+          <View style={{padding: mvs(10)}}>
+            <Bold label={`John doe`} />
+            <Bold label={`Edit profile`} />
+          </View>
         </Row>
         <Image source={eye} style={{height: mvs(20), width: mvs(29)}} />
       </Row>
