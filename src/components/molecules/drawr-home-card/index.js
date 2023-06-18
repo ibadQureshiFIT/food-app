@@ -11,10 +11,12 @@ import { t } from 'i18next';
 import { Row } from 'components/atoms/row';
 import { eye, home, profile_pic } from 'assets/images';
 
-const DrawerHomeCard = ({ icon1, icon2, label1, label2, br = 0, containerStyle }) => {
+const DrawerHomeCard = ({
+  icon1, icon2, label1, label2,
+  br = 0, containerStyle }) => {
   return (
     <>
-      <Row style={[styles.homeContainer, style, {
+      <Row style={[styles.homeContainer, containerStyle, {
         borderRadius: mvs(br),
 
       }]}>
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  img: { height: mvs(15), width: mvs(20), marginRight: mvs(16) },
+  img: { height: mvs(19), width: mvs(22), marginRight: mvs(16) },
   homeContainer: {
     backgroundColor: colors.white,
     height: mvs(48),
@@ -54,7 +56,6 @@ const styles = StyleSheet.create({
     marginHorizontal: mvs(17),
     paddingHorizontal: mvs(17.5),
     alignItems: 'center',
-    ...colors.shadow,
 
   }
 });
