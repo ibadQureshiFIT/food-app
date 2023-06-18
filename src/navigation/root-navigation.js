@@ -15,6 +15,7 @@ import LocationSetup from 'screens/location-setup';
 import { horizontalAnimation } from '../utils';
 import { TabBar } from './curvedtabs';
 import Me from 'screens/me';
+import Search from 'screens/search';
 const Stack = createNativeStackNavigator();
 
 export const RootNavigator = () => {
@@ -23,11 +24,11 @@ export const RootNavigator = () => {
       <SafeAreaView style={{ flex: 0, backgroundColor: colors.primary }} />
       <StatusBar
         translucent={false}
-        backgroundColor={colors.primary}
-        barStyle={'light-content'}
+        backgroundColor={colors.white}
+        barStyle={'dark-content'}
       />
       <Stack.Navigator
-        initialRouteName="Me"
+        initialRouteName="Splash"
         screenOptions={horizontalAnimation}>
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
@@ -37,6 +38,7 @@ export const RootNavigator = () => {
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="LanguageScreen" component={LanguageScreen} />
+          <Stack.Screen name="Search" component={Search} />
         </Stack.Group>
         {/* location group */}
         <Stack.Group>
