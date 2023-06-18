@@ -5,6 +5,7 @@ import { mvs } from 'config/metrices'
 import Regular from '../../../typography/regular-text'
 import { Loader } from '../loader'
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Bold from 'typography/bold-text'
 type props = {
     onPress: () => void
     title: string
@@ -39,7 +40,7 @@ export const PrimaryButton = (props: props) => {
         <TouchableOpacity disabled={disabled || loading} style={[styles.primaryContainer, { backgroundColor: `${colors.primary}${disabled ? '50' : ''}`, }, containerStyle]} onPress={onPress}>
             {loading ?
                 <Loader color={colors.white} />
-                : <Regular style={[styles.primaryText, textStyle]} label={title} />}
+                : <Bold style={[styles.primaryText, textStyle]} label={title} />}
         </TouchableOpacity>
     )
 };
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
     },
     primaryText: {
         color: colors.white,
+        
     },
     iconText: {
         color: colors.white,

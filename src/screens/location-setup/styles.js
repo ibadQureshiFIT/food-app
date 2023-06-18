@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: mvs(24),
   },
+  backButton: {position: 'absolute', zIndex: 1, left: mvs(20), top: mvs(20)},
 });
 export default styles;

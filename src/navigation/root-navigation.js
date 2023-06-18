@@ -15,6 +15,7 @@ import Me from 'screens/me';
 import Onboarding from 'screens/on-boarding';
 import {horizontalAnimation} from 'utils';
 import DrawerNavigation from './drawer-navigation/drawer-navigation';
+import LocationNiceMeet from 'screens/location-nice-meet';
 const Stack = createNativeStackNavigator();
 
 export const RootNavigator = () => {
@@ -39,9 +40,10 @@ export const RootNavigator = () => {
           <Stack.Screen name="LanguageScreen" component={LanguageScreen} />
         </Stack.Group>
         {/* location group */}
-        <Stack.Group>
-          <Stack.Screen name="LocationSetup" component={LocationSetup} />
-        </Stack.Group>
+        {/* <Stack.Group> */}
+        <Stack.Screen name="LocationNiceMeet" component={LocationNiceMeet} />
+        <Stack.Screen name="LocationSetup" component={LocationSetup} />
+        {/* </Stack.Group> */}
         <Stack.Screen name="Drawer" component={DrawerNavigation} />
       </Stack.Navigator>
     </View>
