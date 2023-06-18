@@ -6,8 +6,10 @@ import { I18nManager, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Medium from 'typography/medium-text';
 import { Row } from '../row';
+import { SearchInput } from '../inputs';
 const HeaderX = ({
   style = {},
+  mtop = 0,
   title,
   back = true,
   onChangeText = t => { },
@@ -35,7 +37,7 @@ const HeaderX = ({
         <Medium fontSize={mvs(20)} label={title} style={[styles.title]} />
         <View style={styles.empty} />
       </Row>
-      {/* {isSearch && <SearchInput onChangeText={onChangeText} placeholder={placeholder} />} */}
+      {isSearch && <SearchInput onChangeText={onChangeText} placeholder={placeholder} mtop={mtop} />}
     </View>
   );
 };
