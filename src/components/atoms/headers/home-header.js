@@ -24,7 +24,7 @@ const HomeHeader = ({
     <View style={[styles.container, style]}>
       <Row style={{alignItems: 'center', justifyContent: 'flex-start'}}>
         {back ? (
-          <TouchableOpacity onPress={() => navigation?.goBack()}>
+          <TouchableOpacity onPress={() => navigation?.toggleDrawer()}>
             <Feather name={'menu'} size={mvs(35)} color={colors.white} />
           </TouchableOpacity>
         ) : (

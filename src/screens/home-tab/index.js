@@ -28,9 +28,8 @@ const HomeTab = props => {
   const renderFoodItem = ({item}) => (
     <HomeCard
       item={item}
-      onPress={() =>
-        props?.navigation?.navigate(item?.screen, {title: t(item?.title)})
-      }
+      // props?.navigation?.navigate(item?.screen, {title: t(item?.title)})
+      onPress={() => {}}
     />
   );
   return (

@@ -34,12 +34,12 @@ export const RootNavigator = () => {
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Onboarding" component={Onboarding} />
-          <Stack.Screen name="Me" component={Me} />
+          {/* <Stack.Screen name="Me" component={Me} /> */}
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="LanguageScreen" component={LanguageScreen} />
-          <Stack.Screen name="Search" component={Search} />
+          {/* <Stack.Screen name="Search" component={Search} /> */}
         </Stack.Group>
         {/* location group */}
         {/* <Stack.Group> */}
