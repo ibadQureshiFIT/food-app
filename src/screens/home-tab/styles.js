@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
   },
   contentContainerStyle: {
     marginTop: mvs(10),
+    marginBottom: mvs(100),
   },
 });
 export default styles;

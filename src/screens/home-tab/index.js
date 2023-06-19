@@ -19,7 +19,7 @@ const HomeTab = props => {
   const dispatch = useAppDispatch();
   const {t} = i18n;
   const data = ['Allies', 'restaurant', 'bars', 'cafes', 'Italian foods'];
-  const food = [{id: 1}, {id: 2}, {id: 3}];
+  const food = [{id: 1}, {id: 2}, {id: 3}, {id: 4}];
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
   const handleItemPress = index => {
