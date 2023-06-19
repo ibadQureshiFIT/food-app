@@ -1,12 +1,11 @@
-import { colors } from 'config/colors';
+import {colors} from 'config/colors';
 import React from 'react';
-import { Animated, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { CurvedBottomBar } from 'react-native-curved-bottom-bar';
+import {Animated, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeTab from 'screens/home-tab';
-import LanguageScreen from 'screens/language-screen';
-
-import UserTab from 'screens/user-tab';
+import Me from 'screens/me';
+import Search from 'screens/search';
 
 export const TabBar = props => {
   const _renderIcon = (routeName, selectedTab) => {
@@ -17,8 +16,8 @@ export const TabBar = props => {
         icon = 'home';
         break;
 
-      case 'title2':
-        icon = 'wallet';
+      case 'search':
+        icon = 'search';
         break;
       case 'title3':
         icon = 'receipt';
@@ -36,7 +35,7 @@ export const TabBar = props => {
       />
     );
   };
-  const renderTabBar = ({ routeName, selectedTab, navigate }) => {
+  const renderTabBar = ({routeName, selectedTab, navigate}) => {
     return (
       <TouchableOpacity
         onPress={() => navigate(routeName)}
@@ -50,9 +49,9 @@ export const TabBar = props => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <CurvedBottomBar.Navigator
-        screenOptions={{ headerShown: false }}
+        screenOptions={{headerShown: false}}
         style={styles.bottomBar}
         strokeWidth={0.5}
         strokeColor="#DDDDDD"
@@ -61,7 +60,7 @@ export const TabBar = props => {
         bgColor="white"
         initialRouteName="title1"
         borderTopLeftRight
-        renderCircle={({ selectedTab, navigate }) => (
+        renderCircle={({selectedTab, navigate}) => (
           <Animated.View style={styles.btnCircle}>
             <TouchableOpacity
               style={{
@@ -74,6 +73,11 @@ export const TabBar = props => {
           </Animated.View>
         )}
         tabBar={renderTabBar}>
+        <CurvedBottomBar.Screen
+          name="search"
+          position="LEFT"
+          component={() => <Search {...props} />}
+        />
         <CurvedBottomBar.Screen
           name="title1"
           position="LEFT"
@@ -91,7 +95,7 @@ export const TabBar = props => {
         /> */}
         <CurvedBottomBar.Screen
           name="title4"
-          component={() => <UserTab {...props} />}
+          component={() => <Me {...props} />}
           position="RIGHT"
         />
       </CurvedBottomBar.Navigator>

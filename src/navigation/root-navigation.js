@@ -10,6 +10,7 @@ import Notifications from 'screens/notifications';
 import Signup from 'screens/signup';
 import Splash from 'screens/splash';
 import DrawerNavigation from './drawer-navigation/drawer-navigation';
+import LocationNiceMeet from 'screens/location-nice-meet';
 import Onboarding from 'screens/on-boarding';
 import LocationSetup from 'screens/location-setup';
 import {horizontalAnimation} from '../utils';
@@ -33,17 +34,18 @@ export const RootNavigator = () => {
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Onboarding" component={Onboarding} />
-          <Stack.Screen name="Me" component={Me} />
+          {/* <Stack.Screen name="Me" component={Me} /> */}
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={Signup} />
           <Stack.Screen name="Notifications" component={Notifications} />
           <Stack.Screen name="LanguageScreen" component={LanguageScreen} />
-          <Stack.Screen name="Search" component={Search} />
+          {/* <Stack.Screen name="Search" component={Search} /> */}
         </Stack.Group>
         {/* location group */}
-        <Stack.Group>
-          <Stack.Screen name="LocationSetup" component={LocationSetup} />
-        </Stack.Group>
+        {/* <Stack.Group> */}
+        <Stack.Screen name="LocationNiceMeet" component={LocationNiceMeet} />
+        <Stack.Screen name="LocationSetup" component={LocationSetup} />
+        {/* </Stack.Group> */}
         <Stack.Screen name="Drawer" component={DrawerNavigation} />
       </Stack.Navigator>
     </View>
