@@ -66,8 +66,10 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   contentContainerStyle: {
+    flexGrow: 1,
     marginTop: mvs(10),
-    marginBottom: mvs(100),
+    paddingBottom: mvs(200),
+    paddingHorizontal: mvs(20),
   },
 });
 export default styles;

@@ -41,54 +41,61 @@ const HomeTab = props => {
         back={true}
         isSearch={true}
       />
-      <KeyboardAvoidScrollview contentContainerStyle={{marginTop: mvs(25)}}>
-        <Row>
-          <View style={styles.icons}>
-            <RideCar />
-            <Bold label={'Ride'} />
-          </View>
-          <View style={styles.icons}>
-            <DeliveryBike />
-            <Bold label={'Delivery'} />
-          </View>
-          <View style={styles.icons}>
-            <DeliveryBoy />
-            <Bold label={'Pick up'} />
-          </View>
-        </Row>
 
-        <ScrollView style={{marginTop: mvs(20)}} horizontal={true}>
-          {data.map((item, index) => (
-            <TouchableOpacity
-              style={[
-                styles.itemContainer,
-                selectedItemIndex === index && styles.selectedItem,
-              ]}
-              onPress={() => handleItemPress(index)}
-              key={index}>
-              <Regular
-                style={[
-                  styles.itemText,
-                  selectedItemIndex === index && styles.selectedItemText,
-                ]}
-                label={item}
-              />
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
+      <View style={{marginTop: mvs(10)}}>
+        <FlatList
+          ListHeaderComponent={
+            <View>
+              <Row>
+                <View style={styles.icons}>
+                  <RideCar />
+                  <Bold label={'Ride'} />
+                </View>
+                <View style={styles.icons}>
+                  <DeliveryBike />
+                  <Bold label={'Delivery'} />
+                </View>
+                <View style={styles.icons}>
+                  <DeliveryBoy />
+                  <Bold label={'Pick up'} />
+                </View>
+              </Row>
+              <View>
+                <ScrollView
+                  showsHorizontalScrollIndicator={false}
+                  style={{marginTop: mvs(20)}}
+                  horizontal={true}>
+                  {data.map((item, index) => (
+                    <TouchableOpacity
+                      style={[
+                        styles.itemContainer,
+                        selectedItemIndex === index && styles.selectedItem,
+                      ]}
+                      onPress={() => handleItemPress(index)}
+                      key={index}>
+                      <Regular
+                        style={[
+                          styles.itemText,
+                          selectedItemIndex === index &&
+                            styles.selectedItemText,
+                        ]}
+                        label={item}
+                      />
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+              </View>
+            </View>
+          }
+          contentContainerStyle={styles.contentContainerStyle}
+          showsVerticalScrollIndicator={false}
+          // columnWrapperStyle={styles.columnWrapperStyle}
 
-        <View style={{marginTop: mvs(10)}}>
-          <FlatList
-            contentContainerStyle={styles.contentContainerStyle}
-            showsVerticalScrollIndicator={false}
-            // columnWrapperStyle={styles.columnWrapperStyle}
-
-            data={food}
-            renderItem={renderFoodItem}
-            keyExtractor={(item, index) => index?.toString()}
-          />
-        </View>
-      </KeyboardAvoidScrollview>
+          data={food}
+          renderItem={renderFoodItem}
+          keyExtractor={(item, index) => index?.toString()}
+        />
+      </View>
     </View>
   );
 };
