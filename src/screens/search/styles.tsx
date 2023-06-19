@@ -11,5 +11,15 @@ const styles = StyleSheet.create({
     marginTop: mvs(58),
     marginHorizontal: mvs(166),
   },
+  category: {
+    paddingTop: mvs(33),
+    paddingHorizontal: mvs(27),
+    paddingBottom: mvs(8),
+  },
+  down: {
+    height: mvs(15),
+    marginLeft: mvs(6),
+    width: mvs(11),
+  },
 });
 export default styles;

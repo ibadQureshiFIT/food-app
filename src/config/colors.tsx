@@ -10,13 +10,15 @@ export const colors = {
   black: '#000000',
   darkBlack:'#707070',
   red: '#ff0707',
+  grey: '#707070',
+  gray: '#ECECEC',
   green: '#0DC183',
   transparent: 'transparent',
   yellow: '#ffd79c',
   blueHalf: 'rgba(2,59,150,0.23)',
   secondary: '#f3f3f3', //'#F2F2F2',
   shadow: {
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 1,
@@ -24,7 +26,7 @@ export const colors = {
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 3,
-  }
+  },
 };
 export const darkTheme = {
   border: '#E8E8E8',
