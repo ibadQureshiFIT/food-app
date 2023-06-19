@@ -1,9 +1,10 @@
 import { Alert } from "react-native";
-import { UTILS } from "utils";
-import { createUserWithEmailAndPassword, logout, saveData, signInWithEmailAndPassword } from ".";
+import { createUserWithEmailAndPassword, deleteDocument, logout, saveData, signInWithEmailAndPassword } from ".";
 import { COLLECTIONS, STORAGEKEYS } from "../../config/constants";
 import { AppDispatch, RootState } from "../../store";
 import { reset, setUserInfo } from "../../store/reducers/user-reducer";
+import { Task } from "../../types/entities-types";
+import { UTILS } from "utils";
 import { getData } from './index';
 
 export const onLoginPress = (email: string, password: string, props: any) => {
@@ -38,6 +39,22 @@ export const onSignupPress = (name: string, email: string, password: string, pro
             UTILS.resetStack(props, 'Home');
         } catch (error: any) {
             console.log('error in onSignupPress', error);
+            Alert.alert('', error,);
+        }
+    }
+}
+export const onAddTaskPress = (task: Task, props: any) => {
+    return async (dispatch: AppDispatch, getState: () => RootState) => {
+        try {
+            const userId = getState()?.user?.userInfo?.userId;
+            const uuid = UTILS.getUUID();
+            await saveData(COLLECTIONS.tasks, task?.id || uuid, { ...task, userId });
+            console.log('TASK ADDED');
+
+            props?.navigation?.goBack();
+            Alert.alert('Your task is added')
+        } catch (error: any) {
+            console.log('error in onAddTaskPress', error);
             Alert.alert('', error,);
         }
     }

@@ -1,6 +1,6 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {colors} from 'config/colors';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { colors } from 'config/colors';
 import * as React from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Home from 'screens/home-screen';
@@ -12,10 +12,10 @@ const BottomTab = createNativeStackNavigator<TabParamList>();
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      screenOptions={({route}) => ({
+      screenOptions={({ route }) => ({
         headerShown: false,
         unmountOnBlur: true,
-        tabBarIcon: ({focused, color, size}) => {
+        tabBarIcon: ({ focused, color, size }) => {
           let iconName = 'home';
           if (route.name === 'HomeTab') {
             iconName = 'home';

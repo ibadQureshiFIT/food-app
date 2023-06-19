@@ -1,24 +1,24 @@
 import messaging from '@react-native-firebase/messaging';
-import {auth_bg} from 'assets/images';
-import {PrimaryButton} from 'components/atoms/buttons';
+import { auth_bg } from 'assets/images';
+import { PrimaryButton } from 'components/atoms/buttons';
 import OtpModal from 'components/molecules/modals/otp-modal';
-import {height, mvs, width} from 'config/metrices';
-import {useFormik} from 'formik';
-import {useAppDispatch} from 'hooks/use-store';
-import {navigate, resetStack} from 'navigation/navigation-ref';
+import { height, mvs, width } from 'config/metrices';
+import { useFormik } from 'formik';
+import { useAppDispatch } from 'hooks/use-store';
+import { navigate, resetStack } from 'navigation/navigation-ref';
 import React from 'react';
-import {ImageBackground, TouchableOpacity, View} from 'react-native';
+import { ImageBackground, TouchableOpacity, View ,Text} from 'react-native';
 
 import PrimaryInput from 'components/atoms/inputs';
-import {KeyboardAvoidScrollview} from 'components/atoms/keyboard-avoid-scrollview/index';
+import { KeyboardAvoidScrollview } from 'components/atoms/keyboard-avoid-scrollview/index';
 import i18n from 'translation';
 import Bold from 'typography/bold-text';
 import Medium from 'typography/medium-text';
-import {signinFormValidation} from 'validations';
+import { signinFormValidation } from 'validations';
 import styles from './styles';
 const LoginScreen = props => {
   const dispatch = useAppDispatch();
-  const {t} = i18n;
+  const { t } = i18n;
   const [otpModalVisible, setOtpModalVisible] = React.useState(false);
   const [value, setValue] = React.useState('');
   const initialValues = {
@@ -26,13 +26,13 @@ const LoginScreen = props => {
     password: '',
   };
   const [loading, setLoading] = React.useState(false);
-  const {values, errors, touched, setFieldValue, setFieldTouched, isValid} =
+  const { values, errors, touched, setFieldValue, setFieldTouched, isValid } =
     useFormik({
       initialValues: initialValues,
       validateOnBlur: true,
       validateOnChange: true,
       validationSchema: signinFormValidation,
-      onSubmit: () => {},
+      onSubmit: () => { },
     });
   const onSubmit = async () => {
     try {
@@ -41,7 +41,7 @@ const LoginScreen = props => {
         .then(fcmToken => {
           console.log('fcmToken=>', fcmToken);
           // dispatch(onLogin({ ...values, token: fcmToken }, setLoading, props));
-          navigate('LocationNiceMeet');
+          resetStack('TabBar');
         })
         .catch(error => console.log(error));
     } catch (error) {
@@ -86,15 +86,16 @@ const LoginScreen = props => {
               onChangeText={str => setFieldValue('password', str)}
               onBlur={() => setFieldTouched('password', true)}
               value={values.password}
-              containerStyle={{marginBottom: 0}}
-              errorStyle={{marginBottom: 0}}
+              containerStyle={{ marginBottom: 0 }}
+              errorStyle={{ marginBottom: 0 }}
             />
+             
             <TouchableOpacity
-              style={{alignSelf: 'flex-end', marginBottom: mvs(15)}}
+              style={{ alignSelf: 'flex-end', marginBottom: mvs(15) }}
               onPress={() => navigate('ForgotPassword')}>
               <Medium
                 label={t('forgot_password')}
-                style={{textDecorationLine: 'underline'}}
+                style={{ textDecorationLine: 'underline' }}
               />
             </TouchableOpacity>
             <PrimaryButton
@@ -107,11 +108,11 @@ const LoginScreen = props => {
               title={t('login')}
             />
             <TouchableOpacity
-              style={{alignSelf: 'center', marginTop: mvs(20)}}
+              style={{ alignSelf: 'center', marginTop: mvs(20) }}
               onPress={() => navigate('Signup')}>
               <Medium
                 label={t('dont_have_account')}
-                style={{textDecorationLine: 'underline'}}
+                style={{ textDecorationLine: 'underline' }}
               />
             </TouchableOpacity>
             <OtpModal

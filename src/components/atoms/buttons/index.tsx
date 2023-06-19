@@ -1,18 +1,17 @@
 import React from 'react'
-import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native'
+import { StyleProp, StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native'
 import { colors } from 'config/colors'
 import { mvs } from 'config/metrices'
 import Regular from '../../../typography/regular-text'
 import { Loader } from '../loader'
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Bold from 'typography/bold-text'
 type props = {
     onPress: () => void
     title: string
     icon?: string,
     disabled?: boolean
     loading?: boolean
-    textStyle?: StyleProp<TextStyle>
+    textStyle?: StyleProp<ViewStyle>
     containerStyle?: StyleProp<ViewStyle>
 }
 export const PlusButton = (props: props) => {
@@ -40,7 +39,7 @@ export const PrimaryButton = (props: props) => {
         <TouchableOpacity disabled={disabled || loading} style={[styles.primaryContainer, { backgroundColor: `${colors.primary}${disabled ? '50' : ''}`, }, containerStyle]} onPress={onPress}>
             {loading ?
                 <Loader color={colors.white} />
-                : <Bold style={[styles.primaryText, textStyle]} label={title} />}
+                : <Regular style={[styles.primaryText, textStyle]} label={title} />}
         </TouchableOpacity>
     )
 };
@@ -88,8 +87,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.primary,
         width: '100%',
-        height: mvs(54),
-        borderRadius: mvs(7),
+        height: mvs(50),
+        borderRadius: mvs(15),
     },
     iconContainer: {
         alignItems: 'center',
@@ -103,7 +102,6 @@ const styles = StyleSheet.create({
     },
     primaryText: {
         color: colors.white,
-        
     },
     iconText: {
         color: colors.white,

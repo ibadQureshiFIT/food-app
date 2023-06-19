@@ -1,94 +1,21 @@
-import {useAppDispatch, useAppSelector} from 'hooks/use-store';
-import React, {useState} from 'react';
-import {View, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import Header1x2x from 'components/atoms/headers/header-1x-2x';
+import { useAppDispatch, useAppSelector } from 'hooks/use-store';
+import React from 'react';
+import { View } from 'react-native';
 import i18n from 'translation';
 import styles from './styles';
-import HomeHeader from 'components/atoms/headers/home-header';
-import {Row} from 'components/atoms/row';
-import {DeliveryBike, DeliveryBoy, RideCar} from 'assets/icons';
-import Bold from 'typography/bold-text';
-import Regular from 'typography/regular-text';
-import {mvs} from 'config/metrices';
-import HomeCard from 'components/molecules/home-card';
-import {KeyboardAvoidScrollview} from 'components/atoms/keyboard-avoid-scrollview';
-
 const HomeTab = props => {
   const user = useAppSelector(s => s?.user);
   const userInfo = user?.userInfo;
   const language = user?.language;
   const dispatch = useAppDispatch();
-  const {t} = i18n;
-  const data = ['Allies', 'restaurant', 'bars', 'cafes', 'Italian foods'];
-  const food = [{id: 1}, {id: 2}, {id: 3}, {id: 4}];
-  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const { t } = i18n;
 
-  const handleItemPress = index => {
-    setSelectedItemIndex(index);
-  };
-  const renderFoodItem = ({item}) => (
-    <HomeCard
-      item={item}
-      onPress={() =>
-        props?.navigation?.navigate(item?.screen, {title: t(item?.title)})
-      }
-    />
-  );
   return (
     <View style={styles.container}>
-      <HomeHeader
-        placeholder={'Search for restaurants'}
-        title={'New York City'}
-        back={true}
-        isSearch={true}
-      />
-      <KeyboardAvoidScrollview contentContainerStyle={{marginTop: mvs(25)}}>
-        <Row>
-          <View style={styles.icons}>
-            <RideCar />
-            <Bold label={'Ride'} />
-          </View>
-          <View style={styles.icons}>
-            <DeliveryBike />
-            <Bold label={'Delivery'} />
-          </View>
-          <View style={styles.icons}>
-            <DeliveryBoy />
-            <Bold label={'Pick up'} />
-          </View>
-        </Row>
-
-        <ScrollView style={{marginTop: mvs(20)}} horizontal={true}>
-          {data.map((item, index) => (
-            <TouchableOpacity
-              style={[
-                styles.itemContainer,
-                selectedItemIndex === index && styles.selectedItem,
-              ]}
-              onPress={() => handleItemPress(index)}
-              key={index}>
-              <Regular
-                style={[
-                  styles.itemText,
-                  selectedItemIndex === index && styles.selectedItemText,
-                ]}
-                label={item}
-              />
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-
-        <View style={{marginTop: mvs(10)}}>
-          <FlatList
-            contentContainerStyle={styles.contentContainerStyle}
-            showsVerticalScrollIndicator={false}
-            // columnWrapperStyle={styles.columnWrapperStyle}
-
-            data={food}
-            renderItem={renderFoodItem}
-            keyExtractor={(item, index) => index?.toString()}
-          />
-        </View>
-      </KeyboardAvoidScrollview>
+      <Header1x2x title={t('home')} back={false} />
+      <View style={styles.body}>
+      </View>
     </View>
   );
 };
