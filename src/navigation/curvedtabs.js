@@ -4,11 +4,8 @@ import {Animated, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {CurvedBottomBar} from 'react-native-curved-bottom-bar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeTab from 'screens/home-tab';
-import LanguageScreen from 'screens/language-screen';
 import Me from 'screens/me';
 import Search from 'screens/search';
-
-import UserTab from 'screens/user-tab';
 
 export const TabBar = props => {
   const _renderIcon = (routeName, selectedTab) => {
