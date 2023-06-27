@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import React from 'react';
 import { colors } from 'config/colors';
 const Line = ({ marginVertica = 0 }) => {
+  console.log(88);
   return (
     <View
       style={{
